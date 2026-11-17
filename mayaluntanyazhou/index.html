@@ -1,0 +1,995 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>玛雅论坛-亚洲电影图霸天下讨论区</title>
+<meta name="description" content="玛雅论坛聚焦亚洲电影与图霸天下版块，整理2026年10月至11月华语、日韩、东南亚影片放映信息、剧照对比、版本差异与影迷实测反馈，附分类索引、体验指南与常见问题解答，方便快速定位想看的内容。">
+<meta name="keywords" content="玛雅论坛">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f2f3a'/%3E%3Cpath d='M14 44V20l10 12 8-13 8 13 10-12v24' fill='none' stroke='%23f2c14e' stroke-width='4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"玛雅论坛","description":"亚洲电影与图霸天下讨论社区首页","inLanguage":"zh-CN"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"亚洲电影图霸天下版块怎么找高清剧照？","acceptedAnswer":{"@type":"Answer","text":"在图霸天下版块按“影片名+场次编号”检索，每帖首层会标注剧照来源与拍摄日期，2026年10月后的帖子统一使用PNG无损格式。"}},
+{"@type":"Question","name":"日本动画电影在内地排片为什么比国产片少？","acceptedAnswer":{"@type":"Answer","text":"进口分账片名额与档期协调是主因。以2026年10月16日上映的《海边的信》为例，首周排片占比11.4%，而同档期国产片《长夜列车》为27.8%。"}},
+{"@type":"Question","name":"老电影修复版和原版画质差在哪？","acceptedAnswer":{"@type":"Answer","text":"修复版通常做4K扫描与逐帧去噪，色域从Rec.709扩展到DCI-P3。1987年《码头旧事》修复版对比原版，暗部细节多出约两档曝光，但颗粒感被削弱，部分影迷认为丢失了胶片质感。"}},
+{"@type":"Question","name":"在玛雅论坛发帖需要注册吗？","acceptedAnswer":{"@type":"Answer","text":"浏览无需注册，发帖与评论需要账号。图霸天下版块上传剧照单帖限20张，单张不超过8MB。"}}
+]}
+</script>
+<style>
+:root{
+  --ink:#15221f;
+  --ink-soft:#3d4f4a;
+  --muted:#6b7d78;
+  --paper:#f6f3ec;
+  --paper-2:#fffdf8;
+  --line:#dcd5c6;
+  --brand:#0f2f3a;
+  --brand-2:#1d4b52;
+  --accent:#c8552c;
+  --accent-soft:#f3d9c9;
+  --gold:#e0a838;
+  --gold-soft:#f8ecd2;
+  --teal:#2e7d74;
+  --radius:14px;
+  --radius-sm:8px;
+  --shadow:0 2px 0 rgba(21,34,31,.06),0 10px 24px -18px rgba(21,34,31,.5);
+  --f-display:"Songti SC","Noto Serif SC","Source Han Serif SC",serif;
+  --f-body:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --pad:clamp(16px,4vw,40px);
+  --ann-h:44px;
+  --head-h:64px;
+  --stick:calc(var(--ann-h) + var(--head-h));
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--stick) + 12px)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--f-body);font-size:16px;line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--brand-2);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3{font-family:var(--f-display);line-height:1.3;margin:0}
+p{margin:0 0 .9em}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+/* 公告条 */
+.ann{
+  position:sticky;top:0;z-index:60;height:var(--ann-h);
+  background:var(--brand);color:#e9f2ef;
+  display:flex;align-items:center;gap:12px;
+  padding:0 var(--pad);font-size:13.5px;
+  border-bottom:1px solid rgba(255,255,255,.14);
+}
+.ann .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex:0 0 auto;animation:pulse 2.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.ann .ann-txt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ann .ann-txt b{color:var(--gold);font-weight:600}
+.ann a{color:#bfe6dd;margin-left:auto;flex:0 0 auto;font-size:13px;border-bottom:1px dotted #7fb8ad;padding-bottom:1px}
+.ann a:hover{color:#fff}
+
+/* 页头 */
+.head{
+  position:sticky;top:var(--ann-h);z-index:55;height:var(--head-h);
+  display:flex;align-items:center;gap:18px;padding:0 var(--pad);
+  background:rgba(255,253,248,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.brand{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.brand svg{width:34px;height:34px}
+.brand-name{font-family:var(--f-display);font-size:19px;font-weight:700;letter-spacing:.06em;color:var(--brand)}
+.nav{display:flex;gap:4px;flex:1 1 auto;min-width:0}
+.nav a{
+  font-size:14px;color:var(--ink-soft);padding:7px 11px;border-radius:99px;white-space:nowrap;
+}
+.nav a:hover{background:var(--gold-soft);color:var(--brand);text-decoration:none}
+.nav a.on{background:var(--brand);color:#fff}
+.head-actions{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.searchbox{position:relative;display:flex;align-items:center}
+.searchbox input{
+  width:170px;height:34px;border:1px solid var(--line);border-radius:99px;
+  padding:0 34px 0 13px;font-family:inherit;font-size:13.5px;background:#fff;color:var(--ink);
+}
+.searchbox input:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(46,125,116,.16)}
+.searchbox button{
+  position:absolute;right:3px;width:28px;height:28px;border:0;background:transparent;
+  cursor:pointer;display:grid;place-items:center;color:var(--brand-2);border-radius:50%;
+}
+.searchbox button:hover{background:var(--gold-soft)}
+.search-res{
+  position:absolute;top:40px;right:0;width:290px;max-width:78vw;background:#fff;
+  border:1px solid var(--line);border-radius:var(--radius-sm);box-shadow:var(--shadow);
+  padding:8px;font-size:13.5px;display:none;max-height:300px;overflow:auto;z-index:70;
+}
+.search-res.show{display:block}
+.search-res a{display:block;padding:7px 9px;border-radius:6px;color:var(--ink)}
+.search-res a:hover{background:var(--paper);text-decoration:none}
+.search-res .none{color:var(--muted);padding:8px 9px}
+.menu-btn{
+  display:none;width:36px;height:36px;border:1px solid var(--line);border-radius:8px;
+  background:#fff;cursor:pointer;place-items:center;
+}
+.menu-btn span{display:block;width:16px;height:2px;background:var(--brand);position:relative}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;width:16px;height:2px;background:var(--brand)}
+.menu-btn span::before{top:-5px}.menu-btn span::after{top:5px}
+
+/* 首屏 */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(1100px 460px at 82% -10%,rgba(224,168,56,.22),transparent 62%),
+    linear-gradient(160deg,#0f2f3a 0%,#163c44 46%,#1d4b52 100%);
+  color:#f2f6f3;padding:clamp(38px,6vw,72px) var(--pad) clamp(30px,5vw,58px);
+}
+.hero-in{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,56px);align-items:center;position:relative;z-index:2}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.16em;color:#f4d18a;border:1px solid rgba(244,209,138,.4);border-radius:99px;padding:5px 13px;margin-bottom:18px}
+.kicker i{width:6px;height:6px;background:#f4d18a;border-radius:50%;display:block}
+.hero h1{font-size:clamp(34px,5.4vw,58px);letter-spacing:.04em;color:#fff;margin-bottom:14px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero .lede{font-size:clamp(14.5px,1.5vw,16.5px);color:#c8dcd7;max-width:38em;line-height:1.85;margin-bottom:24px}
+.hero .lede b{color:#fff;font-weight:600}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:99px;
+  font-size:14.5px;font-weight:600;border:1px solid transparent;transition:transform .16s ease,background .16s ease;
+}
+.btn:hover{text-decoration:none;transform:translateY(-2px)}
+.btn-p{background:var(--gold);color:#251a03}
+.btn-p:hover{background:#eec05a}
+.btn-g{border-color:rgba(255,255,255,.42);color:#eaf4f0}
+.btn-g:hover{background:rgba(255,255,255,.1)}
+.hero-stats{display:flex;flex-wrap:wrap;gap:clamp(18px,3vw,40px);border-top:1px solid rgba(255,255,255,.16);padding-top:18px;max-width:460px}
+.hero-stats div{font-size:12.5px;color:#9fbfb8;letter-spacing:.03em}
+.hero-stats b{display:block;font-family:var(--f-display);font-size:23px;color:#fff;letter-spacing:.02em;line-height:1.25}
+/* 原创视觉：场记板拼贴 */
+.hero-art{position:relative;aspect-ratio:1/.94;min-height:250px}
+.slate{
+  position:absolute;inset:8% 6% 12% 4%;border-radius:12px;
+  background:linear-gradient(150deg,#f6efe1,#e7dcc4);color:#20231f;
+  box-shadow:0 26px 50px -22px rgba(0,0,0,.7);padding:18px 18px 0;
+  display:flex;flex-direction:column;
+  transform:rotate(-3deg);
+}
+.slate .clap{
+  height:26px;margin:-18px -18px 14px;border-radius:12px 12px 0 0;
+  background:repeating-linear-gradient(115deg,#20231f 0 18px,#f6efe1 18px 36px);
+}
+.slate .row{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.08em;color:#5d5a4d;border-bottom:1px dashed #c3b79c;padding-bottom:6px;margin-bottom:8px}
+.slate .ttl{font-family:var(--f-display);font-size:clamp(17px,2.2vw,22px);line-height:1.45;margin-bottom:8px;color:#1b2a26}
+.slate .meta{font-size:11.5px;color:#6b6552;line-height:1.7}
+.slate .thumb{margin-top:auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;padding-bottom:14px}
+.slate .thumb i{display:block;height:34px;border-radius:4px;background:linear-gradient(135deg,#2e7d74,#1d4b52)}
+.slate .thumb i:nth-child(2){background:linear-gradient(135deg,#c8552c,#8f3a1d)}
+.slate .thumb i:nth-child(3){background:linear-gradient(135deg,#e0a838,#b3812a)}
+.spool{
+  position:absolute;right:-2%;top:-4%;width:26%;aspect-ratio:1;border-radius:50%;
+  background:conic-gradient(from 0deg,#0f2f3a 0 12%,#f6efe1 12% 25%,#0f2f3a 25% 37%,#f6efe1 37% 50%,#0f2f3a 50% 62%,#f6efe1 62% 75%,#0f2f3a 75% 87%,#f6efe1 87% 100%);
+  box-shadow:0 12px 30px -12px rgba(0,0,0,.65);border:5px solid #e7dcc4;
+}
+.spool::after{content:"";position:absolute;inset:36%;background:#e7dcc4;border-radius:50%;box-shadow:inset 0 0 0 6px #0f2f3a}
+.filmstrip{
+  position:absolute;left:-3%;bottom:-2%;width:48%;height:22px;border-radius:4px;
+  background:linear-gradient(#141715,#141715);transform:rotate(4deg);
+  -webkit-mask:repeating-linear-gradient(90deg,#000 0 14px,transparent 14px 22px);
+  mask:repeating-linear-gradient(90deg,#000 0 14px,transparent 14px 22px);
+  opacity:.85;
+}
+
+/* 布局 */
+.wrap{max-width:1180px;margin:0 auto;padding:0 var(--pad)}
+.main-grid{display:grid;grid-template-columns:minmax(0,1fr) 292px;gap:clamp(22px,3.4vw,42px);align-items:start;padding-block:clamp(34px,5vw,56px)}
+.side{position:sticky;top:calc(var(--stick) + 18px);display:flex;flex-direction:column;gap:20px}
+@media (max-width:1180px){.side{top:calc(var(--stick) + 12px)}}
+
+.sect{margin-bottom:clamp(34px,4.4vw,52px);scroll-margin-top:calc(var(--stick) + 14px)}
+.sect-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;border-bottom:2px solid var(--ink);padding-bottom:9px;margin-bottom:20px}
+.sect-head h2{font-size:clamp(21px,2.5vw,27px);letter-spacing:.02em}
+.sect-head .no{font-family:var(--f-display);font-size:13px;color:var(--accent);letter-spacing:.14em;display:block;margin-bottom:3px}
+.sect-head .more{font-size:13px;color:var(--muted);flex:0 0 auto;padding-bottom:4px}
+.sect-head .more:hover{color:var(--accent);text-decoration:none}
+
+/* 概览 */
+.overview{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(18px,3vw,28px);box-shadow:var(--shadow)}
+.overview p{font-size:15px;color:var(--ink-soft)}
+.ov-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}
+.ov-item{border-left:3px solid var(--gold);padding:2px 0 2px 13px}
+.ov-item b{display:block;font-family:var(--f-display);font-size:15.5px;color:var(--brand);margin-bottom:2px}
+.ov-item span{font-size:13.5px;color:var(--muted);line-height:1.65;display:block}
+
+/* 精选卡片 */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.card img{width:100%;height:132px;object-fit:cover}
+.card-body{padding:13px 15px 15px;display:flex;flex-direction:column;flex:1}
+.card .tag{font-size:11.5px;color:var(--accent);letter-spacing:.08em;margin-bottom:5px}
+.card h3{font-size:16px;line-height:1.5;margin-bottom:7px;color:var(--brand)}
+.card h3 a:hover{color:var(--accent);text-decoration:none}
+.card p{font-size:13px;color:var(--muted);line-height:1.68;margin:0 0 10px;flex:1}
+.card .foot{display:flex;justify-content:space-between;font-size:12px;color:#8a978f;border-top:1px dashed var(--line);padding-top:8px}
+
+/* 最新更新紧凑列表 */
+.updates{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.updates li{display:grid;grid-template-columns:78px minmax(0,1fr) auto;gap:14px;align-items:baseline;padding:11px 2px;border-bottom:1px dashed var(--line)}
+.updates time{font-size:12.5px;color:var(--accent);font-weight:600;letter-spacing:.03em}
+.updates .t{font-size:14.5px;color:var(--ink)}
+.updates .t small{color:var(--muted);font-size:12.5px;margin-left:6px}
+.updates .u{font-size:12px;color:#93a09a;white-space:nowrap}
+
+/* 分类入口 */
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{
+  display:inline-flex;align-items:center;gap:7px;padding:8px 15px;border:1px solid var(--line);
+  border-radius:99px;background:var(--paper-2);font-size:13.5px;color:var(--ink);
+}
+.chip:hover{border-color:var(--brand);background:var(--gold-soft);text-decoration:none}
+.chip b{font-weight:600;color:var(--brand)}
+.chip span{font-size:11.5px;color:var(--muted)}
+
+/* 深度解析 */
+.deep{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(18px,3.2vw,32px)}
+.deep .lead{font-size:15.5px;color:var(--ink-soft);border-left:4px solid var(--gold);padding-left:15px;margin-bottom:22px}
+.deep h3{font-size:18.5px;margin:26px 0 10px;color:var(--brand);padding-left:12px;border-left:4px solid var(--teal)}
+.deep h3:first-of-type{margin-top:4px}
+.deep p{font-size:14.8px;color:#31423d;line-height:1.85}
+.deep .quote{
+  background:var(--gold-soft);border-radius:var(--radius-sm);padding:14px 18px;margin:16px 0;
+  font-family:var(--f-display);font-size:15.5px;line-height:1.7;color:#4a3a14;
+  border-left:4px solid var(--gold);
+}
+.deep .quote cite{display:block;font-family:var(--f-body);font-style:normal;font-size:12px;color:#8a7440;margin-top:7px}
+.tbl{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px}
+.tbl th,.tbl td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+.tbl th{background:#eef1e6;color:var(--brand);font-weight:600;font-size:13px}
+.tbl td{color:var(--ink-soft)}
+.tbl tr:nth-child(even) td{background:#fbf9f3}
+.deep ol,.deep ul{font-size:14.5px;color:#31423d;padding-left:22px;margin:0 0 14px}
+.deep li{margin-bottom:6px}
+.deep li b{color:var(--brand)}
+
+/* 体验指南 编号步骤 */
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.step{position:relative;background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 16px 56px}
+.step::before{
+  counter-increment:s;content:counter(s);position:absolute;left:15px;top:15px;
+  width:28px;height:28px;border-radius:50%;background:var(--brand);color:#fff;
+  font-family:var(--f-display);font-size:14px;display:grid;place-items:center;
+}
+.step b{display:block;font-size:14.5px;color:var(--brand);margin-bottom:4px}
+.step span{font-size:13px;color:var(--muted);line-height:1.7;display:block}
+
+/* 对照面板 */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--paper-2)}
+.compare>div{padding:16px 18px}
+.compare>div+div{border-left:1px solid var(--line)}
+.compare h3{font-size:15px;margin-bottom:9px;color:var(--brand)}
+.compare ul{list-style:none;margin:0;padding:0;font-size:13.5px;color:var(--ink-soft)}
+.compare li{padding:6px 0 6px 17px;position:relative;border-bottom:1px dashed var(--line)}
+.compare li:last-child{border-bottom:0}
+.compare li::before{content:"";position:absolute;left:2px;top:14px;width:6px;height:6px;border-radius:2px;background:var(--teal)}
+.compare .b li::before{background:var(--accent)}
+
+/* FAQ */
+.faq details{border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--paper-2);margin-bottom:10px;overflow:hidden}
+.faq summary{
+  cursor:pointer;padding:13px 42px 13px 16px;font-size:14.8px;font-weight:600;color:var(--brand);
+  list-style:none;position:relative;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"";position:absolute;right:17px;top:50%;width:8px;height:8px;
+  border-right:2px solid var(--brand-2);border-bottom:2px solid var(--brand-2);
+  transform:translateY(-70%) rotate(45deg);transition:transform .2s ease;
+}
+.faq details[open] summary::after{transform:translateY(-25%) rotate(225deg)}
+.faq summary:hover{background:var(--gold-soft)}
+.faq .ans{padding:0 16px 15px;font-size:14px;color:var(--ink-soft);line-height:1.8}
+
+/* 评论 */
+.comments{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cmt{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);padding:15px 17px}
+.cmt .who{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+.cmt .av{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-size:14px;color:#fff;flex:0 0 auto}
+.cmt .nm{font-size:13.5px;font-weight:600;color:var(--brand)}
+.cmt .tm{font-size:11.5px;color:#9aa69f;margin-left:auto}
+.cmt p{font-size:13.5px;color:var(--ink-soft);line-height:1.75;margin:0}
+.cmt .on{color:var(--accent);font-size:12.5px}
+.stars{color:var(--gold);font-size:12px;letter-spacing:1px}
+
+/* 资讯 双列 */
+.news{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.news article{border-bottom:1px dashed var(--line);padding:13px 0}
+.news .d{font-size:12px;color:var(--accent);letter-spacing:.04em}
+.news h3{font-size:15px;line-height:1.55;margin:3px 0 5px}
+.news p{font-size:13px;color:var(--muted);line-height:1.7;margin:0}
+
+/* 标签索引 */
+.tagcloud{display:flex;flex-wrap:wrap;gap:8px}
+.tagcloud a{
+  font-size:13px;padding:6px 13px;border-radius:6px;background:#eef1e6;color:var(--brand-2);
+  border:1px solid transparent;
+}
+.tagcloud a:hover{border-color:var(--teal);text-decoration:none;background:var(--gold-soft)}
+.tagcloud a.hot{background:var(--accent-soft);color:#8f3a1d}
+
+/* 榜单时间线 */
+.timeline{list-style:none;margin:0;padding:0 0 0 20px;border-left:2px solid var(--line)}
+.timeline li{position:relative;padding:0 0 17px 14px}
+.timeline li::before{content:"";position:absolute;left:-25px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--paper);border:2px solid var(--teal)}
+.timeline li:last-child{padding-bottom:0}
+.timeline time{font-size:12px;color:var(--accent);font-weight:600}
+.timeline b{display:block;font-size:14.5px;color:var(--brand);margin:2px 0 3px}
+.timeline span{font-size:13px;color:var(--muted);line-height:1.7}
+
+/* 用户互动 投票条 */
+.poll{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
+.poll h3{font-size:16px;margin-bottom:12px;color:var(--brand)}
+.poll .opt{margin-bottom:11px;font-size:13.5px}
+.poll .opt .lab{display:flex;justify-content:space-between;margin-bottom:4px;color:var(--ink-soft)}
+.poll .bar{height:9px;background:#e9e4d6;border-radius:99px;overflow:hidden}
+.poll .bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--teal),var(--brand-2))}
+.poll .opt:nth-child(3) .bar i{background:linear-gradient(90deg,#e0a838,#c8552c)}
+.poll .note{font-size:12px;color:var(--muted);margin:12px 0 0;padding-top:10px;border-top:1px dashed var(--line)}
+
+/* 侧栏 */
+.side-card{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);padding:17px 18px;box-shadow:var(--shadow)}
+.side-card h3{font-size:15px;color:var(--brand);margin-bottom:11px;padding-bottom:8px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:7px}
+.side-card h3::before{content:"";width:4px;height:14px;background:var(--gold);border-radius:2px;display:block}
+.side-nav{list-style:none;margin:0;padding:0}
+.side-nav a{display:block;font-size:13.5px;color:var(--ink-soft);padding:6px 9px;border-radius:6px;border-left:2px solid transparent}
+.side-nav a:hover{background:var(--paper);text-decoration:none;color:var(--brand)}
+.side-nav a.on{color:var(--accent);border-left-color:var(--accent);background:var(--paper);font-weight:600}
+.rank{list-style:none;margin:0;padding:0;counter-reset:r}
+.rank li{counter-increment:r;display:grid;grid-template-columns:22px 1fr;gap:8px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px;color:var(--ink-soft);align-items:baseline}
+.rank li:last-child{border-bottom:0}
+.rank li::before{content:counter(r);font-family:var(--f-display);font-size:14px;color:var(--gold);font-weight:700}
+.rank small{display:block;color:var(--muted);font-size:11.5px;margin-top:1px}
+.side-note{font-size:13px;color:var(--muted);line-height:1.75;margin:0}
+
+/* 页尾 */
+.foot{background:var(--brand);color:#b9d2cc;padding:clamp(34px,5vw,52px) var(--pad) 22px;margin-top:20px}
+.foot-in{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;gap:clamp(22px,3.4vw,42px)}
+.foot .brand-name{color:#fff}
+.foot .fbrand{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.foot .fbrand svg{width:30px;height:30px}
+.foot .slogan{font-size:13.5px;line-height:1.8;color:#a6c2bc;margin-bottom:14px;max-width:24em}
+.foot h4{font-size:13px;color:#fff;letter-spacing:.06em;margin:2px 0 10px;font-family:var(--f-display)}
+.foot ul{list-style:none;margin:0;padding:0}
+.foot ul a{font-size:13px;color:#a6c2bc;display:block;padding:4px 0}
+.foot ul a:hover{color:var(--gold);text-decoration:none}
+.foot .note{font-size:12px;color:#7fa39c;line-height:1.8;margin:0}
+.foot-bottom{max-width:1180px;margin:26px auto 0;padding-top:15px;border-top:1px solid rgba(255,255,255,.13);display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:space-between;font-size:12px;color:#7fa39c}
+.foot-bottom span{line-height:1.7}
+
+/* 回到顶部 */
+.top{
+  position:fixed;right:18px;bottom:22px;z-index:80;width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--line);background:var(--paper-2);color:var(--brand);cursor:pointer;
+  display:grid;place-items:center;box-shadow:var(--shadow);opacity:0;visibility:hidden;
+  transition:opacity .2s ease,transform .2s ease;transform:translateY(8px);
+}
+.top.show{opacity:1;visibility:visible;transform:none}
+.top:hover{background:var(--gold-soft)}
+@media (max-width:1024px){
+  .hero-in{grid-template-columns:1fr}
+  .hero-art{max-width:340px;width:100%;min-height:0;justify-self:start;margin-top:8px}
+  .main-grid{grid-template-columns:1fr}
+  .side{position:static;display:grid;grid-template-columns:1fr 1fr;align-items:start}
+  .side-card:first-child{grid-column:1/-1}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .foot-in{grid-template-columns:1fr 1fr}
+  .nav{display:none}
+  .menu-btn{display:grid}
+  .nav.open{
+    display:flex;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:2px;
+    background:var(--paper-2);border-bottom:1px solid var(--line);padding:10px var(--pad) 16px;
+    box-shadow:0 18px 26px -22px rgba(0,0,0,.6);
+  }
+  .nav.open a{padding:10px 12px;border-radius:8px;font-size:14.5px}
+  .searchbox input{width:130px}
+}
+@media (max-width:760px){
+  .ov-grid,.steps,.comments,.compare,.news{grid-template-columns:1fr}
+  .compare>div+div{border-left:0;border-top:1px solid var(--line)}
+  .cards{grid-template-columns:1fr}
+  .updates li{grid-template-columns:70px minmax(0,1fr)}
+  .updates .u{display:none}
+  .foot-in{grid-template-columns:1fr}
+  .side{grid-template-columns:1fr}
+  .searchbox{display:none}
+  .ann .ann-txt{font-size:12.5px}
+  .hero-stats{gap:16px}
+}
+@media (max-width:400px){
+  .hero h1{font-size:31px}
+  .top{right:12px;bottom:16px;width:40px;height:40px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .card:hover,.btn:hover{transform:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="ann" role="region" aria-label="站点更新公告">
+  <span class="dot" aria-hidden="true"></span>
+  <span class="ann-txt"><b>玛雅论坛</b> 11月6日更新：图霸天下第 412 期剧照合集《雾港》共 86 张已归档，附 4K 修复版与原版对照 12 组。</span>
+  <a href="/#updates">查看更新</a>
+</div>
+
+<header class="head">
+  <div class="brand">
+    <svg viewBox="0 0 64 64" role="img" aria-label="论坛标志：胶片齿孔与山形拼成的字母 M">
+      <rect width="64" height="64" rx="14" fill="#0f2f3a"/>
+      <path d="M14 44V20l10 12 8-13 8 13 10-12v24" fill="none" stroke="#e0a838" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+      <circle cx="14" cy="52" r="2.4" fill="#2e7d74"/>
+      <circle cx="26" cy="52" r="2.4" fill="#2e7d74"/>
+      <circle cx="38" cy="52" r="2.4" fill="#2e7d74"/>
+      <circle cx="50" cy="52" r="2.4" fill="#2e7d74"/>
+    </svg>
+    <span class="brand-name">玛雅论坛</span>
+  </div>
+  <nav class="nav" id="nav" aria-label="主题导航">
+    <a href="/#overview">版块概览</a>
+    <a href="/#picks">本周精选</a>
+    <a href="/#updates">最新更新</a>
+    <a href="/#channels">分类入口</a>
+    <a href="/#deep">深度解析</a>
+    <a href="/#guide">观影指南</a>
+    <a href="/#faq">常见问答</a>
+  </nav>
+  <div class="head-actions">
+    <div class="searchbox">
+      <input type="search" id="q" placeholder="搜片名、影人、场次" aria-label="站内搜索" autocomplete="off">
+      <button type="button" id="qbtn" aria-label="搜索">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+      </button>
+      <div class="search-res" id="res" role="listbox" aria-label="搜索结果"></div>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav" aria-label="展开导航菜单"><span></span></button>
+  </div>
+</header>
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-in">
+    <div>
+      <span class="kicker"><i aria-hidden="true"></i>亚洲电影 · 剧照档案 · 影迷实测</span>
+      <h1 id="hero-title">玛雅论坛<em>·</em>亚洲电影图霸天下</h1>
+      <p class="lede">从香港新浪潮的胶片颗粒到首尔 CGV 的 4DX 场次，从曼谷国际电影节的午夜展映到京都老影院的 35 毫米放映机。<b>图霸天下</b>把剧照、场次表、修复版对比和影迷实测放在一处，找片不用翻十几个群。</p>
+      <div class="hero-cta">
+        <a class="btn btn-p" href="/#picks">看本周精选 12 部</a>
+        <a class="btn btn-g" href="/#channels">按地区找片 →</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>1 268</b>部在档影片</div>
+        <div><b>86</b>张本期剧照合集</div>
+        <div><b>34 700</b>条影迷实测</div>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="slate">
+        <div class="clap"></div>
+        <div class="row"><span>TAKE 07</span><span>ASAHI / DCP</span></div>
+        <div class="ttl">雾港<br>MIST HARBOR</div>
+        <div class="meta">导演：林慎吾 · 日本 / 2026<br>片长 128 分钟 · 4K 修复版</div>
+        <div class="thumb"><i></i><i></i><i></i></div>
+      </div>
+      <div class="spool"></div>
+      <div class="filmstrip"></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="main-grid">
+
+    <main>
+      <!-- 1 概览 -->
+      <section class="sect" id="overview">
+        <div class="sect-head">
+          <h2><span class="no">板块 01</span>亚洲电影版图速览</h2>
+          <a class="more" href="/#channels">全部 10 个频道</a>
+        </div>
+        <div class="overview">
+          <p>2026 年 10 月 9 日至 11 月 7 日，亚洲各地的院线、流媒体与电影节排片出现三个明显动作：日本动画长片继续抢占华语市场周末黄金场，韩国犯罪片转向中小成本与二轮放映，东南亚合拍片首次通过内地艺术电影联盟进入 27 个城市。下面四组数字来自各院线公开场次表与版块归档。</p>
+          <div class="ov-grid">
+            <div class="ov-item"><b>《雾港》内地首周 11.4%</b><span>10 月 16 日上映，首周排片占比 11.4%，同期国产片《长夜列车》27.8%。</span></div>
+            <div class="ov-item"><b>3 部东南亚合拍片入盟</b><span>《湄南河慢船》《椰影》《雨季第七天》，覆盖 27 城 112 家艺术影院。</span></div>
+            <div class="ov-item"><b>4K 修复 6 部老片</b><span>1987《码头旧事》、1993《夏日汽水》等，均带原始胶片噪点保留选项。</span></div>
+            <div class="ov-item"><b>图霸天下第 412 期</b><span>11 月 6 日归档，86 张剧照，含 12 组修复版与原版同帧对照。</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 精选 -->
+      <section class="sect" id="picks">
+        <div class="sect-head">
+          <h2><span class="no">板块 02</span>本周精选 · 值得进影院的亚洲片</h2>
+          <a class="more" href="/#news">相关资讯 →</a>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <img src="https://picsum.photos/seed/mistharbor401/480/300" width="480" height="300" loading="lazy" alt="《雾港》码头夜戏剧照，路灯下的湿石板路与远处货轮">
+            <div class="card-body">
+              <div class="tag">日本 · 悬疑</div>
+              <h3><a href="/#deep">《雾港》：128 分钟里只给了 3 次全景</a></h3>
+              <p>林慎吾把九成镜头压在中近景，观众和主角一样看不见全貌。图霸天下收录的场记照显示，码头主景连拍 17 个夜晚。</p>
+              <div class="foot"><span>10 月 16 日上映</span><span>影迷评 8.1</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/nighttrain77/480/300" width="480" height="300" loading="lazy" alt="《长夜列车》绿皮车厢内景剧照，行李架与窗外夜色">
+            <div class="card-body">
+              <div class="tag">中国 · 公路</div>
+              <h3><a href="/#guide">《长夜列车》42 分钟一镜到底的车厢调度</a></h3>
+              <p>剧组在废弃编组站搭了 3 节可旋转车厢，摄影机沿过道往返 6 次。首周排片 27.8%，二轮场仍保留原声版本。</p>
+              <div class="foot"><span>10 月 23 日上映</span><span>影迷评 7.7</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/mekongboat22/480/300" width="480" height="300" loading="lazy" alt="《湄南河慢船》河面晨雾剧照，木船与两岸吊脚楼">
+            <div class="card-body">
+              <div class="tag">泰国 · 剧情</div>
+              <h3><a href="/#news">《湄南河慢船》艺术联盟 112 家影院排片</a></h3>
+              <p>导演纳塔吾·蓬西里用 16 毫米拍完，冲洗后只做了 2K 扫描。片中对白混入潮州话与泰语，字幕组整理了 41 处方言注。</p>
+              <div class="foot"><span>10 月 30 日上映</span><span>影迷评 8.4</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 3 最新更新 -->
+      <section class="sect" id="updates">
+        <div class="sect-head">
+          <h2><span class="no">板块 03</span>最新更新 · 条目与场次变动</h2>
+          <a class="more" href="/#channels">按频道筛选</a>
+        </div>
+        <ul class="updates">
+          <li><time datetime="2026-11-06">11-06</time><span class="t">图霸天下第 412 期《雾港》剧照归档<small>86 张 PNG + 12 组同帧对照</small></span><span class="u">图霸天下</span></li>
+          <li><time datetime="2026-11-05">11-05</time><span class="t">《码头旧事》4K 修复版新增原声粤语轨<small>对比原版暗部曝光提升约两档</small></span><span class="u">修复档案</span></li>
+          <li><time datetime="2026-11-03">11-03</time><span class="t">首尔 CGV 龙山店 11 月排片表更新<small>《雨季第七天》加开 4DX 场</small></span><span class="u">韩国院线</span></li>
+          <li><time datetime="2026-11-01">11-01</time><span class="t">《夏日汽水》1993 版胶片扫描稿释出<small>片头 32 秒删减镜头首次公开</small></span><span class="u">修复档案</span></li>
+          <li><time datetime="2026-10-29">10-29</time><span class="t">曼谷国际电影节午夜展映单元片单确定<small>共 14 部，其中 5 部为亚洲首映</small></span><span class="u">电影节</span></li>
+          <li><time datetime="2026-10-27">10-27</time><span class="t">《长夜列车》导演评论音轨上线<small>谈车厢旋转装置的 3 次返工</small></span><span class="u">华语院线</span></li>
+        </ul>
+      </section>
+
+      <!-- 4 分类入口 -->
+      <section class="sect" id="channels">
+        <div class="sect-head">
+          <h2><span class="no">板块 04</span>分类入口 · 10 个常逛频道</h2>
+          <a class="more" href="/#rank">频道热度榜</a>
+        </div>
+        <div class="chips">
+          <a class="chip" href="/#pickstreets"><b>华语院线新片</b><span>328 条</span></a>
+          <a class="chip" href="/#overview"><b>日本动画剧场版</b><span>214 条</span></a>
+          <a class="chip" href="/#deep"><b>韩国犯罪类型片</b><span>176 条</span></a>
+          <a class="chip" href="/#updates"><b>东南亚合拍片</b><span>92 条</span></a>
+          <a class="chip" href="/#updates"><b>经典胶片修复</b><span>261 条</span></a>
+          <a class="chip" href="/#guide"><b>艺术影院排片</b><span>147 条</span></a>
+          <a class="chip" href="/#picks"><b>图霸天下剧照</b><span>412 期</span></a>
+          <a class="chip" href="/#news"><b>电影节前线</b><span>88 条</span></a>
+          <a class="chip" href="/#guide"><b>版本与字幕差异</b><span>133 条</span></a>
+          <a class="chip" href="/#comments"><b>影迷实测反馈</b><span>34 700 条</span></a>
+        </div>
+      </section>
+
+      <!-- 5 深度解析 -->
+      <section class="sect" id="deep">
+        <div class="sect-head">
+          <h2><span class="no">板块 05</span>深度解析 · 排片、修复与“看不看得懂”</h2>
+        </div>
+        <article class="deep">
+          <p class="lead">三个判断：进口动画的排片劣势被档期放大了；4K 修复不等于更好看；方言混用正在成为合拍片的新门槛。每条后面附可核对的时间、数字或原话。</p>
+
+          <h3>判断一：动画片排片低，主因是档期而非类型</h3>
+          <p>《海边的信》10 月 16 日上映，首周排片占比 11.4%，而同日上映的《长夜列车》是 27.8%。这组数字常被拿来论证“院线排斥日本动画”，但翻场次表会发现另一层：10 月 17 日至 19 日是国庆档尾声，《长夜列车》拿到的多是 19:00—21:00 黄金厅，而《海边的信》有 41% 的场次排在 13:00 前或 22:00 后。</p>
+          <p>11 月 6 日《海边的信》进入第三周，排片降到 6.2%，但上座率 34.1%，反超同厅《长夜列车》的 27.5%。院线随即在 11 月 7 日把晚间场次从 2 场加到 5 场。档期错配的影响，比类型偏好更直接。</p>
+          <div class="quote">“首周不敢给晚间厅，是因为预售只开了 9 天。第三周数据回来才敢调。”<cite>—— 某院线区域排片经理 11 月 5 日在版块内的回帖原话</cite></div>
+
+          <h3>判断二：4K 修复的画质提升，集中在暗部而不是整体</h3>
+          <p>1987 年《码头旧事》修复版 10 月 28 日在 4 家艺术影院重映。技术说明写的是 4K 扫描、DCI-P3 色域、逐帧去噪。实际观感差异可以用同帧对照核对：</p>
+          <table class="tbl">
+            <thead><tr><th>对照项</th><th>1987 原版拷贝</th><th>2026 修复版</th></tr></thead>
+            <tbody>
+              <tr><td>暗部细节</td><td>码头仓库内景几乎全黑</td><td>可见木箱纹理，约多出两档曝光</td></tr>
+              <tr><td>胶片颗粒</td><td>明显，夜戏有闪烁</td><td>去噪后平滑，颗粒削弱约七成</td></tr>
+              <tr><td>色域</td><td>Rec.709 转制</td><td>DCI-P3，霓虹招牌偏品红</td></tr>
+              <tr><td>片头</td><td>无字幕卡</td><td>新增 12 秒修复说明</td></tr>
+            </tbody>
+          </table>
+          <p>版块内 11 月 2 日的对比帖里，用户“荔枝汽水”认为去噪让雨夜戏失去了潮湿感，这条评论获得 214 个赞同；也有 97 人认为暗部可见才是修复的意义。两边都指向同一组数据，分歧在审美取向，不在事实。</p>
+
+          <h3>判断三：方言混用提高了理解门槛，但字幕组并未统一处理</h3>
+          <p>《湄南河慢船》全片 104 分钟，潮州话对白约 23 分钟，泰语约 61 分钟，剩余为环境声与默片式段落。10 月 30 日上映后，版块内出现至少 3 种字幕处理说法：</p>
+          <ol>
+            <li><b>内地公映版</b>：潮州话段落以普通话字幕呈现，未标注语种，片方 11 月 1 日回应称“为照顾大多数观众”。</li>
+            <li><b>影展版</b>：字幕右上角标注 [潮] 与 [泰]，由导演本人确认。</li>
+            <li><b>网络流传版</b>：把潮州话对白直接转写成泰语再意译，11 月 4 日被字幕组公开否认参与。</li>
+          </ol>
+          <p>三种版本的差异不在翻译质量，而在“观众是否知道角色在切换语言”。这条判断可以被反驳：如果观众只需要剧情，标注语种反而是干扰。可核对的点是，影展版与公映版在 14 处对白的用词不同，其中 9 处影响人物关系理解。</p>
+        </article>
+      </section>
+
+      <!-- 6 体验指南 -->
+      <section class="sect" id="guide">
+        <div class="sect-head">
+          <h2><span class="no">板块 06</span>观影体验指南 · 六步找到合适的场次</h2>
+        </div>
+        <div class="steps">
+          <div class="step"><b>先定时长再定影厅</b><span>128 分钟以上的片子，优先选靠背可调的艺术影院厅；《雾港》在普通厅后排容易看不清暗部。</span></div>
+          <div class="step"><b>查版本号而非片名</b><span>《码头旧事》重映有 4K 修复与 2K 数字两版，购票页会写“修复重映”与“数字修复”两种字样。</span></div>
+          <div class="step"><b>看字幕语种标注</b><span>《湄南河慢船》公映版无 [潮][泰] 标注，想看清语言切换就等 11 月 14 日的影展加映。</span></div>
+          <div class="step"><b>错开首周末黄金场</b><span>《长夜列车》首周六 19:30 场上座 91%，同片周日上午场上座 46%，座位更好选。</span></div>
+          <div class="step"><b>核对片尾彩蛋时长</b><span>《海边的信》片尾字幕 4 分 12 秒，末尾有 38 秒手绘镜头，别提前离场。</span></div>
+          <div class="step"><b>二轮场留意声轨</b><span>部分二轮影院只保留国语配音轨，原声场次需在购票页点开“语言”一栏确认。</span></div>
+        </div>
+      </section>
+
+      <!-- 7 对照面板 -->
+      <section class="sect" id="compare">
+        <div class="sect-head">
+          <h2><span class="no">板块 07</span>修复版与原版怎么选</h2>
+        </div>
+        <div class="compare">
+          <div>
+            <h3>选 4K 修复版的理由</h3>
+            <ul>
+              <li>暗部细节多出约两档曝光，仓库戏能看清布景</li>
+              <li>色域扩展到 DCI-P3，霓虹段落色彩更接近原始底片</li>
+              <li>音轨重新混录，对白清晰度提升，环境声层次更分明</li>
+              <li>适合第一次看这部片、需要快速进入情节的观众</li>
+            </ul>
+          </div>
+          <div class="b">
+            <h3>坚持原版拷贝的理由</h3>
+            <ul>
+              <li>胶片颗粒与轻微闪烁保留，雨夜戏的潮湿质感更完整</li>
+              <li>无新增片头说明，开场即入戏</li>
+              <li>部分艺术影院提供 35 毫米放映，放映机噪声本身构成现场感</li>
+              <li>适合已看过修复版、想比对原始放映状态的影迷</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8 FAQ -->
+      <section class="sect faq" id="faq">
+        <div class="sect-head">
+          <h2><span class="no">板块 08</span>常见问答 · 找片与看片</h2>
+        </div>
+        <details>
+          <summary>图霸天下版块的剧照怎么按场次检索？</summary>
+          <div class="ans">每期归档帖首层标注影片名、拍摄日期与场次编号，例如“雾港-1016-夜-03”。站内搜索框输入片名或编号都能命中，2026 年 10 月后的帖统一用 PNG 无损格式，单张不超过 8MB。</div>
+        </details>
+        <details>
+          <summary>日本动画剧场版在内地的排片为何常被压到非黄金场？</summary>
+          <div class="ans">进口分账片名额与档期协调是主因。以 10 月 16 日上映的《海边的信》为例，首周排片 11.4%，41% 的场次在 13:00 前或 22:00 后；同档期《长夜列车》拿到 27.8%，黄金厅占比明显更高。第三周上座率回升后，院线才把晚间场从 2 场加到 5 场。</div>
+        </details>
+        <details>
+          <summary>修复版和原版的画质差异能用肉眼核对吗？</summary>
+          <div class="ans">能。拿《码头旧事》同一帧仓库内景对比，修复版可见木箱纹理，原版几乎全黑，约差两档曝光；但修复版去噪后颗粒削弱约七成，雨夜戏的潮湿感会变淡。11 月 2 日版块内的同帧对照帖有 12 组图可直接看。</div>
+        </details>
+        <details>
+          <summary>东南亚合拍片的方言对白，公映版字幕会不会标注语种？</summary>
+          <div class="ans">目前不标注。《湄南河慢船》公映版的潮州话段落直接以普通话字幕呈现，影展版才在字幕右上角加 [潮] [泰]。两版在 14 处对白用词不同，其中 9 处影响人物关系理解，想看清语言切换可等 11 月 14 日的影展加映场。</div>
+        </details>
+        <details>
+          <summary>在版块里发剧照或影评需要注册账号吗？</summary>
+          <div class="ans">浏览不需要，发帖与评论需要账号。图霸天下单帖上传剧照限 20 张、单张 8MB 以内；影评帖子按影片条目归档，同一部片的多篇影评会按发布时间列在条目下，便于比对不同场次的观感。</div>
+        </details>
+        <details>
+          <summary>艺术影院联盟的 27 个城市名单在哪里看？</summary>
+          <div class="ans">在“艺术影院排片”频道的置顶条目里，按城市分 4 组列出 112 家影院，每家标注是否支持 35 毫米放映、是否有原声场。11 月新增的 3 部东南亚合拍片只在名单内影院上映，普通商业院线暂无排片。</div>
+        </details>
+      </section>
+
+      <!-- 9 评论 -->
+      <section class="sect" id="comments">
+        <div class="sect-head">
+          <h2><span class="no">板块 09</span>影迷实测 · 6 条不同场次的反馈</h2>
+          <a class="more" href="/#faq">发帖规则 →</a>
+        </div>
+        <div class="comments">
+          <div class="cmt">
+            <div class="who"><span class="av" style="background:#2e7d74">荔</span><span class="nm">荔枝汽水</span><span class="tm">11-02</span></div>
+            <p>《码头旧事》修复版把雨夜戏的颗粒磨平了，潮湿感没了。同帧对照我看过 12 组，暗部是清楚了，可那不是当年在录像厅看到的样子。<span class="on">评《码头旧事》4K 修复版</span></p>
+            <div class="stars" aria-label="评分 3 星">★★★☆☆</div>
+          </div>
+          <div class="cmt">
+            <div class="who"><span class="av" style="background:#c8552c">阿</span><span class="nm">阿樑在旺角</span><span class="tm">11-04</span></div>
+            <p>《雾港》128 分钟只给 3 次全景，我数了。第 2 次全景在 71 分钟，货轮灯亮的那一下，整个影厅有人倒吸气。这种压着拍的悬疑，比 jump scare 耐看。<span class="on">评《雾港》</span></p>
+            <div class="stars" aria-label="评分 4 星">★★★★☆</div>
+          </div>
+          <div class="cmt">
+            <div class="who"><span class="av" style="background:#e0a838">K</span><span class="nm">Kayo_京都</span><span class="tm">11-05</span></div>
+            <p>《长夜列车》42 分钟一镜到底确实厉害，但车厢旋转装置第三次返工的痕迹看得出来——中段过道灯有 2 秒闪烁。导演评论音轨里自己承认了，反而觉得诚实。<span class="on">评《长夜列车》</span></p>
+            <div class="stars" aria-label="评分 4 星">★★★★☆</div>
+          </div>
+          <div class="cmt">
+            <div class="who"><span class="av" style="background:#1d4b52">船</span><span class="nm">船上的猫</span><span class="tm">11-06</span></div>
+            <p>《湄南河慢船》公映版字幕不标 [潮][泰]，看到一半才反应过来角色换语言了。剧情能跟上，但人物关系有几处没看懂，回来翻影展版对照才发现 9 处用词不同。<span class="on">评《湄南河慢船》</span></p>
+            <div class="stars" aria-label="评分 3 星">★★★☆☆</div>
+          </div>
+          <div class="cmt">
+            <div class="who"><span class="av" style="background:#7d6b2e">老</span><span class="nm">老周看片</span><span class="tm">11-01</span></div>
+            <p>《海边的信》首周只有 11.4% 排片，我跑了两家影院才买到晚间场。第三周上座率 34.1% 反超，院线才加场——早干嘛去了。预售开 9 天太短。<span class="on">评《海边的信》排片</span></p>
+            <div class="stars" aria-label="评分 4 星">★★★★☆</div>
+          </div>
+          <div class="cmt">
+            <div class="who"><span class="av" style="background:#8f3a1d">小</span><span class="nm">小满不满</span><span class="tm">11-03</span></div>
+            <p>首尔 CGV 龙山店的 4DX 场给《雨季第七天》加了座椅震动，但这部片子大半是静景对话，震动只在 3 个段落触发，反而出戏。普通厅就够了。<span class="on">评《雨季第七天》4DX 场</span></p>
+            <div class="stars" aria-label="评分 2 星">★★☆☆☆</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10 相关资讯 -->
+      <section class="sect" id="news">
+        <div class="sect-head">
+          <h2><span class="no">板块 10</span>相关资讯 · 场次与片单变动</h2>
+        </div>
+        <div class="news">
+          <article>
+            <div class="d">11-06 · 图霸天下</div>
+            <h3>第 412 期《雾港》剧照归档，86 张含 12 组同帧对照</h3>
+            <p>场记照显示码头主景连拍 17 个夜晚，其中 9 张为未采用的雨夜变体，附拍摄日期与场次编号。</p>
+          </article>
+          <article>
+            <div class="d">11-05 · 修复档案</div>
+            <h3>《码头旧事》4K 修复版新增原声粤语轨</h3>
+            <p>技术说明列出去噪强度与色域参数，暗部曝光提升约两档；4 家艺术影院保留 35 毫米放映场。</p>
+          </article>
+          <article>
+            <div class="d">11-03 · 韩国院线</div>
+            <h3>首尔 CGV 龙山店 11 月排片更新，《雨季第七天》加开 4DX</h3>
+            <p>4DX 效果只在 3 个段落触发，影院方在购票页新增“静景提示”，避免观众预期落差。</p>
+          </article>
+          <article>
+            <div class="d">10-29 · 电影节</div>
+            <h3>曼谷国际电影节午夜展映单元 14 部片单确定</h3>
+            <p>5 部亚洲首映，含 2 部 16 毫米拍摄作品；影展版字幕统一标注语种，与公映版存在差异。</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- 11 相关推荐 -->
+      <section class="sect" id="related">
+        <div class="sect-head">
+          <h2><span class="no">板块 11</span>相关推荐 · 你可能想接着看</h2>
+        </div>
+        <div class="tagcloud">
+          <a href="/#deep" class="hot">雾港 128 分钟全景次数</a>
+          <a href="/#compare">码头旧事 4K 修复对比</a>
+          <a href="/#guide">长夜列车 42 分钟长镜头</a>
+          <a href="/#faq">湄南河慢船 方言字幕</a>
+          <a href="/#updates">雨季第七天 4DX 场次</a>
+          <a href="/#picks">海边的信 排片回升</a>
+          <a href="/#updates">夏日汽水 删减 32 秒</a>
+          <a href="/#channels">艺术影院 35 毫米放映</a>
+          <a href="/#news">曼谷电影节午夜单元</a>
+          <a href="/#deep">DCI-P3 与 Rec.709 差异</a>
+        </div>
+      </section>
+
+      <!-- 12 榜单 + 时间线 + 投票 -->
+      <section class="sect" id="rank">
+        <div class="sect-head">
+          <h2><span class="no">板块 12</span>版块热度榜与 11 月影片时间线</h2>
+        </div>
+        <div class="compare">
+          <div>
+            <h3>图霸天下单帖浏览榜（10-09 至 11-06）</h3>
+            <ul>
+              <li>《雾港》夜景布光拆解 · 18 402 次</li>
+              <li>《码头旧事》同帧对照 12 组 · 15 776 次</li>
+              <li>《长夜列车》车厢平面图 · 12 940 次</li>
+              <li>《湄南河慢船》方言注 41 处 · 9 315 次</li>
+            </ul>
+          </div>
+          <div class="b">
+            <h3>11 月可核对的排片节点</h3>
+            <ul>
+              <li>11-07 《海边的信》晚间场 2 场增至 5 场</li>
+              <li>11-09 《雾港》IMAX 版转普通厅，票价下调</li>
+              <li>11-14 《湄南河慢船》影展加映，带语种标注</li>
+              <li>11-18 《码头旧事》35 毫米放映最后一场</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="sect" id="poll">
+        <div class="sect-head">
+          <h2><span class="no">互动</span>你会为哪一版重看《码头旧事》</h2>
+        </div>
+        <div class="poll">
+          <h3>投票进行中 · 截至 11 月 9 日 22:00</h3>
+          <div class="opt">
+            <div class="lab"><span>4K 修复版，暗部看得清</span><span>46%</span></div>
+            <div class="bar"><i style="width:46%"></i></div>
+          </div>
+          <div class="opt">
+            <div class="lab"><span>35 毫米原版，颗粒更对味</span><span>38%</span></div>
+            <div class="bar"><i style="width:38%"></i></div>
+          </div>
+          <div class="opt">
+            <div class="lab"><span>两版都看，自己比</span><span>16%</span></div>
+            <div class="bar"><i style="width:16%"></i></div>
+          </div>
+          <p class="note">共 1 042 票。样本来自版块内已登录账号，同一账号限投一次。</p>
+        </div>
+      </section>
+    </main>
+
+    <aside class="side" aria-label="侧栏导航与榜单">
+      <div class="side-card">
+        <h3>频道快速跳转</h3>
+        <ul class="side-nav" id="sideNav">
+          <li><a href="/#overview">亚洲电影版图速览</a></li>
+          <li><a href="/#picks">本周精选</a></li>
+          <li><a href="/#updates">最新更新</a></li>
+          <li><a href="/#channels">分类入口</a></li>
+          <li><a href="/#deep">深度解析</a></li>
+          <li><a href="/#guide">观影体验指南</a></li>
+          <li><a href="/#compare">修复版与原版</a></li>
+          <li><a href="/#faq">常见问答</a></li>
+          <li><a href="/#comments">影迷实测</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+          <li><a href="/#related">相关推荐</a></li>
+          <li><a href="/#rank">热度榜与时间线</a></li>
+        </ul>
+      </div>
+      <div class="side-card">
+        <h3>本周剧照榜</h3>
+        <ol class="rank">
+          <li>《雾港》货轮灯亮那帧<small>图霸天下 · 第 412 期</small></li>
+          <li>《码头旧事》仓库木箱对照<small>修复档案 · 12 组之一</small></li>
+          <li>《长夜列车》车厢旋转中段<small>华语院线 · 场记照</small></li>
+          <li>《湄南河慢船》晨雾木船<small>东南亚合拍片 · 16 毫米</small></li>
+        </ol>
+      </div>
+      <div class="side-card">
+        <h3>参与方式</h3>
+        <p class="side-note">浏览无需登录。发剧照帖走图霸天下频道，单帖限 20 张、单张 8MB。影评按影片条目归档，短评写清场次时间与影厅编号，方便别人核对同一场的观感。</p>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div>
+      <div class="fbrand">
+        <svg viewBox="0 0 64 64" role="img" aria-label="页尾标志">
+          <rect width="64" height="64" rx="14" fill="#f6f3ec"/>
+          <path d="M14 44V20l10 12 8-13 8 13 10-12v24" fill="none" stroke="#0f2f3a" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name">玛雅论坛</span>
+      </div>
+      <p class="slogan">把剧照、场次与版本差异攒成可查的档案，影迷找片时少绕几道弯。</p>
+      <p class="note">站内条目多为影迷整理与示例数据，购票与排片以影院当日公示为准。</p>
+    </div>
+    <div>
+      <h4>内容频道</h4>
+      <ul>
+        <li><a href="/#pickstreets">华语院线新片</a></li>
+        <li><a href="/#overview">日本动画剧场版</a></li>
+        <li><a href="/#deep">韩国犯罪类型片</a></li>
+        <li><a href="/#updates">东南亚合拍片</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>资料与工具</h4>
+      <ul>
+        <li><a href="/#updates">经典胶片修复</a></li>
+        <li><a href="/#picks">图霸天下剧照</a></li>
+        <li><a href="/#guide">版本与字幕差异</a></li>
+        <li><a href="/#faq">找片常见问答</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>社区</h4>
+      <ul>
+        <li><a href="/#comments">影迷实测反馈</a></li>
+        <li><a href="/#rank">版块热度榜</a></li>
+        <li><a href="/#news">电影节前线</a></li>
+        <li><a href="/#poll">本期投票</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>页面更新：2026-11-08 · 对应正文更新项：《雾港》第 412 期剧照归档与《码头旧事》4K 修复轨</span>
+    <span>© 2026 玛雅论坛 · 示例数据说明：非实时排片，仅作检索演示</span>
+  </div>
+</footer>
+
+<button class="top" id="top" aria-label="回到页面顶部" title="回到顶部">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function(){
+  var q=document.getElementById('q'),
+      btn=document.getElementById('qbtn'),
+      res=document.getElementById('res'),
+      menuBtn=document.getElementById('menuBtn'),
+      nav=document.getElementById('nav'),
+      topBtn=document.getElementById('top');
+
+  var index=[
+    {t:'雾港 128 分钟全景次数',u:'/#deep'},
+    {t:'雾港 第412期剧照归档',u:'/#updates'},
+    {t:'码头旧事 4K修复对比',u:'/#compare'},
+    {t:'码头旧事 原声粤语轨',u:'/#updates'},
+    {t:'长夜列车 42分钟长镜头',u:'/#guide'},
+    {t:'长夜列车 导演评论音轨',u:'/#news'},
+    {t:'海边的信 排片回升',u:'/#deep'},
+    {t:'湄南河慢船 方言字幕语种',u:'/#faq'},
+    {t:'雨季第七天 4DX场次',u:'/#news'},
+    {t:'夏日汽水 删减32秒',u:'/#updates'},
+    {t:'曼谷国际电影节午夜单元',u:'/#news'},
+    {t:'艺术影院联盟 27城名单',u:'/#faq'},
+    {t:'图霸天下剧照频道',u:'/#channels'},
+    {t:'修复版与原版对照面板',u:'/#compare'},
+    {t:'影迷实测反馈',u:'/#comments'}
+  ];
+
+  function doSearch(){
+    var v=(q.value||'').trim().toLowerCase();
+    if(!v){res.classList.remove('show');res.innerHTML='';return;}
+    var hit=index.filter(function(x){return x.t.toLowerCase().indexOf(v)>-1;});
+    if(hit.length===0){
+      res.innerHTML='<div class="none">没有找到“'+v.replace(/[<>&]/g,'')+'”。试试片名、影人或场次编号。</div>';
+    }else{
+      res.innerHTML=hit.map(function(x){return '<a href="'+x.u+'">'+x.t+'</a>';}).join('');
+    }
+    res.classList.add('show');
+  }
+  btn.addEventListener('click',doSearch);
+  q.addEventListener('input',doSearch);
+  q.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();doSearch();}});
+  document.addEventListener('click',function(e){
+    if(!e.target.closest('.searchbox')) res.classList.remove('show');
+  });
+
+  menuBtn.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded',open?'true':'false');
+    menuBtn.setAttribute('aria-label',open?'收起导航菜单':'展开导航菜单');
+  });
+  nav.addEventListener('click',function(e){
+    if(e.target.tagName==='A' && window.innerWidth<=1024){
+      nav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded','false');
+    }
+  });
+
+  var links=Array.prototype.slice.call(document.querySelectorAll('#sideNav a'));
+  var secs=links.map(function(a){var id=a.getAttribute('href').slice(2);return document.getElementById(id);}).filter(Boolean);
+  function onScroll(){
+    var y=window.scrollY+180,cur=null;
+    secs.forEach(function(s){if(s.offsetTop<=y)cur=s.id;});
+    links.forEach(function(a){
+      a.classList.toggle('on',cur && a.getAttribute('href')==='/#/'+cur.replace('/#','') || a.getAttribute('href')==='#'+cur || a.getAttribute('href')==='/'+'#'+cur);
+    });
+    if(window.scrollY>520){topBtn.classList.add('show');}else{topBtn.classList.remove('show');}
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+
+  topBtn.addEventListener('click',function(){
+    window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+  });
+})();
+</script>
+</body>
+  </html>
